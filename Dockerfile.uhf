@@ -1,10 +1,37 @@
 # Final image on Ubuntu 25.04
 FROM ubuntu:25.04
 
-# Install dependencies and FFmpeg 7.x from Ubuntu repos
+# Install all build dependencies including Comskip requirements
 RUN apt-get update -o Acquire::Check-Valid-Until=false \
-    && apt-get install -y curl bash unzip ffmpeg comskip \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates git curl bash unzip ffmpeg \
+        build-essential autoconf automake libtool \
+        libargtable2-dev pkg-config libsdl2-dev \
+        libavcodec-dev libavformat-dev libavfilter-dev libavutil-dev \
+        libavdevice-dev libjansson-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# Build and install Comskip from source
+RUN cd /tmp \
+    && git clone --depth 1 https://github.com/erikkaashoek/Comskip.git \
+    && cd Comskip \
+    && ./autogen.sh \
+    && ./configure \
+    && make \
+    && make install \
+    && cd / \
+    && rm -rf /tmp/Comskip
+
+# Build and install Comskip from source
+RUN cd /tmp \
+    && git clone --depth 1 https://github.com/erikkaashoek/Comskip.git \
+    && cd Comskip \
+    && ./autogen.sh \
+    && ./configure \
+    && make \
+    && make install \
+    && cd / \
+    && rm -rf /tmp/Comskip
 
 # Install UHF server with specific version
 ARG TARGETARCH

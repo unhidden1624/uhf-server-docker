@@ -1,5 +1,3 @@
----
-version: '3.8'
 services:
 
   uhf-server:
@@ -21,15 +19,15 @@ services:
       - 8000:8000  # <HOST>:<CONTAINER>
 
     # Optional container environment config
-    # Uncomment to customize internal container settings (usually not needed)
+    # Uncomment to customize internal container settings
     environment:
       - ENABLE_COMMERCIAL_DETECTION=false  # set true for detection
+      # - PASSWORD=
       # - API_HOST=0.0.0.0
       # - API_PORT=8000
       # - RECORDINGS_DIR=/var/lib/uhf-server/recordings
       # - DB_PATH=/var/lib/uhf-server/db.json
       # - LOG_LEVEL=INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
-      # - PASSWORD=
 
     # Simple command with conditional commercial detection and password flags
     command:
