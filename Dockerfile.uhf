@@ -22,17 +22,6 @@ RUN cd /tmp \
     && cd / \
     && rm -rf /tmp/Comskip
 
-# Build and install Comskip from source
-RUN cd /tmp \
-    && git clone --depth 1 https://github.com/erikkaashoek/Comskip.git \
-    && cd Comskip \
-    && ./autogen.sh \
-    && ./configure \
-    && make \
-    && make install \
-    && cd / \
-    && rm -rf /tmp/Comskip
-
 # Install UHF server with specific version
 ARG TARGETARCH
 ARG UHF_VERSION
