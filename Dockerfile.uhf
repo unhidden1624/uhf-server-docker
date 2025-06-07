@@ -43,5 +43,5 @@ RUN mkdir -p /var/lib/uhf-server/recordings
 # Set working directory
 WORKDIR /var/lib/uhf-server
 
-# Start UHF server
+# Start bash
 CMD ["bash"]
