@@ -19,9 +19,9 @@ services:
       - 8000:8000  # <HOST>:<CONTAINER>
 
     # Optional container environment config
-    # Uncomment to customize internal container settings
     environment:
-      - ENABLE_COMMERCIAL_DETECTION=false  # set true for detection
+      - ENABLE_COMMERCIAL_DETECTION=false  # set true for commercial detection
+      # Uncomment below to customize internal container settings (usually not needed)
       # - PASSWORD=
       # - API_HOST=0.0.0.0
       # - API_PORT=8000
