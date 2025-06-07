@@ -2,7 +2,7 @@
 FROM ubuntu:25.04
 
 # Install dependencies and FFmpeg 7.x from Ubuntu repos
-RUN apt-get update \
+RUN apt-get update -o Acquire::Check-Valid-Until=false \
     && apt-get install -y curl bash unzip ffmpeg comskip \
     && rm -rf /var/lib/apt/lists/*
 
