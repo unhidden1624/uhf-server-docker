@@ -29,7 +29,8 @@ services:
       # - DB_PATH=/var/lib/uhf-server/db.json
       # - LOG_LEVEL=INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
 
-    # Simple command with conditional commercial detection and password flags
+    # Command with conditional flags
+    # !!! Do not modify this unless you know what you're doing !!!
     command:
       - sh
       - -c
