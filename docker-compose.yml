@@ -35,8 +35,8 @@ services:
       - -c
       - |
           exec uhf-server \
-            ${ENABLE_COMMERCIAL_DETECTION:+--enable-commercial-detection} \
-            ${PASSWORD:+--password "$PASSWORD"}
+            $${ENABLE_COMMERCIAL_DETECTION:+--enable-commercial-detection} \
+            $${PASSWORD:+--password "$$PASSWORD"}
 
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/server/stats"]
